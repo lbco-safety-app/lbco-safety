@@ -19,7 +19,6 @@ function home() {
   $app.innerHTML = header() + `
     <p class="sub">Use the buttons below to complete your safety documents</p>
     <p class="sub">FOR SUPPORT please use the <b>Technical Support Request</b> button under the <b>APP ADMIN</b> section below</p>`;
-  $app.append(el(`<a class="btn" href="jotform.html" style="text-align:center;text-decoration:none;box-sizing:border-box">Open the Jotform version of this app</a>`));
   MENU.top.forEach((i) => $app.append(btn(i)));
   const grid = el(`<div class="grid"></div>`);
   MENU.columns.forEach((col) => {
@@ -48,6 +47,13 @@ function renderForm(id) {
   const def = FORMS[id];
   if (!def) return home();
   $app.innerHTML = header() + `<h2>${esc(def.title)}</h2>`;
+  // If this form also exists in Jotform, show the Jotform form (embedded) instead of the local one.
+  const jf = window.JOTFORM && window.JOTFORM[id];
+  if (jf) {
+    $app.append(backRow());
+    $app.append(el(`<iframe title="${esc(def.title)}" src="https://form.jotform.com/${jf}" allow="geolocation; microphone; camera" style="width:100%;height:85vh;min-height:600px;border:0"></iframe>`));
+    return;
+  }
   const form = el(`<form></form>`);
   def.fields.forEach((f) => {
     const wrap = el(`<div class="field"></div>`);

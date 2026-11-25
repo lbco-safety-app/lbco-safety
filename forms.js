@@ -249,3 +249,22 @@ window.MENU = {
       { label: "Update/Delete Existing Work Sites", admin: "sites" }] },
   ],
 };
+
+// Forms that also exist in the LBCO Jotform account. Matching menu forms open the Jotform form (embedded);
+// everything else keeps using the built-in form. Remove an entry to go back to the built-in version.
+window.JOTFORM = {
+  signin: "263286440144051",      // Work Site Sign In
+  orientation: "263286461245056", // Site Safety Orientation
+  hazard: "262305952841256",      // eHazard Assessment
+  equipment: "262367325130047",   // Powered Mobile Equipment Check
+  meeting: "263286863328064",     // Safety Meeting
+  security: "263286441467060",    // Site Security Checks
+  incident: "263286282489067",    // Incident Reporting & Investigation
+  inspection: "263286342242051",  // Work Site Inspections
+  eco: "263286655584067",         // ECO Inspections
+  esc: "263286157686067",         // ESC Inspections
+  signs: "263286184411053",       // Construction Signs Inspection
+  drill: "263286468063061",       // Emergency Response Drill
+  contractor: "263026069664057",  // Contractor Orientation
+  // warning: "262936036296061",  // Written Warning (Jotform form is currently disabled - turn it on, then uncomment)
+};
