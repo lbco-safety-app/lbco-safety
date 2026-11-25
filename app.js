@@ -19,6 +19,7 @@ function home() {
   $app.innerHTML = header() + `
     <p class="sub">Use the buttons below to complete your safety documents</p>
     <p class="sub">FOR SUPPORT please use the <b>Technical Support Request</b> button under the <b>APP ADMIN</b> section below</p>`;
+  $app.append(el(`<a class="btn" href="jotform.html" style="text-align:center;text-decoration:none;box-sizing:border-box">Open the Jotform version of this app</a>`));
   MENU.top.forEach((i) => $app.append(btn(i)));
   const grid = el(`<div class="grid"></div>`);
   MENU.columns.forEach((col) => {
