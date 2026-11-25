@@ -253,7 +253,7 @@ window.MENU = {
 // Forms that also exist in the LBCO Jotform account. Matching menu forms open the Jotform form (embedded);
 // everything else keeps using the built-in form. Remove an entry to go back to the built-in version.
 window.JOTFORM = {
-  signin: "263286440144051",      // Work Site Sign In
+  signin: "262366866132058",      // Work Site Sign In
   orientation: "263286461245056", // Site Safety Orientation
   hazard: "262305952841256",      // eHazard Assessment
   equipment: "262367325130047",   // Powered Mobile Equipment Check
