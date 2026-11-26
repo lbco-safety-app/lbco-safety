@@ -11,6 +11,12 @@ const sign = { id: "signature", label: "Signature (type full name)", type: "sign
 const checks = (items) => ({ id: "checks", label: "Checklist", type: "checklist", items });
 
 window.FORMS = {
+  forceaccount: {
+    title: "Force Account Ticket",
+    fields: [...base,
+      { id: "job", label: "Job number", type: "text" },
+      { id: "work", label: "Description of work", type: "textarea" }, sign],
+  },
   signin: {
     title: "Work Site Sign In",
     fields: [...base,
@@ -231,7 +237,8 @@ window.MENU = {
       { label: "eHazard Assessment", form: "hazard", icon: "triangle-exclamation" },
       { label: "Powered Mobile Equipment Check", form: "equipment", icon: "video-slash" },
       { label: "Safety Meeting", form: "meeting", icon: "helmet-safety" },
-      { label: "Site Security Checks", form: "security", icon: "shield" }] },
+      { label: "Site Security Checks", form: "security", icon: "shield" },
+      { label: "Force Account Ticket", form: "forceaccount", icon: "file-invoice-dollar" }] },
     { title: "Inspections", items: [
       { label: "Incident Reporting & Investigation", form: "incident", icon: "car-burst" },
       { label: "Work Site Inspections", form: "inspection", icon: "clipboard" },
@@ -270,6 +277,7 @@ window.JOTFORM = {
   equipment: "262367325130047",   // Powered Mobile Equipment Check
   meeting: "263286863328064",     // Safety Meeting
   security: "263286441467060",    // Site Security Checks
+  forceaccount: "263286045900052", // Force Account Ticket
   incident: "263286282489067",    // Incident Reporting & Investigation
   inspection: "263286342242051",  // Work Site Inspections
   eco: "263286655584067",         // ECO Inspections
