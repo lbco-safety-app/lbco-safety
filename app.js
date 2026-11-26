@@ -32,8 +32,9 @@ function home() {
 }
 
 function btn(item) {
+  if (item.heading) return el(`<h3 class="subhead">${esc(item.heading)}</h3>`);
   const b = el(`<button class="btn">${esc(item.label)}</button>`);
-  b.onclick = () => { if (item.url) { window.open(item.url, "_blank", "noopener"); return; } location.hash = item.report ? `#report/${item.report}` : item.form ? `#form/${item.form}` : item.doc ? `#doc/${item.doc}` : `#admin/${item.admin}`; };
+  b.onclick = () => { if (item.doc && window.DOC_URLS && window.DOC_URLS[item.doc]) { window.open(window.DOC_URLS[item.doc], "_blank", "noopener"); return; } if (item.url) { window.open(item.url, "_blank", "noopener"); return; } location.hash = item.report ? `#report/${item.report}` : item.form ? `#form/${item.form}` : item.doc ? `#doc/${item.doc}` : `#admin/${item.admin}`; };
   return b;
 }
 
@@ -41,6 +42,21 @@ function backRow() {
   const r = el(`<div class="row"><button class="btn secondary">← Home</button></div>`);
   r.firstChild.onclick = () => (location.hash = "");
   return r;
+}
+
+// Embed a Jotform form. Jotform's embed handler resizes the iframe to the form's height,
+// so the page scrolls normally on desktop and phone (no scroll-inside-a-scroll).
+function jotformFrame(jf, title) {
+  const f = el(`<iframe id="JotFormIFrame-${jf}" title="${esc(title)}" src="https://form.jotform.com/${jf}" allow="geolocation; microphone; camera; fullscreen" scrolling="no" style="width:1px;min-width:100%;height:700px;border:none"></iframe>`);
+  const go = () => window.jotformEmbedHandler && window.jotformEmbedHandler(`iframe[id='JotFormIFrame-${jf}']`, "https://form.jotform.com/");
+  if (window.jotformEmbedHandler) setTimeout(go);
+  else {
+    const s = document.createElement("script");
+    s.src = "https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js";
+    s.onload = go;
+    document.head.append(s);
+  }
+  return f;
 }
 
 function renderForm(id) {
@@ -51,7 +67,7 @@ function renderForm(id) {
   const jf = window.JOTFORM && window.JOTFORM[id];
   if (jf) {
     $app.append(backRow());
-    $app.append(el(`<iframe title="${esc(def.title)}" src="https://form.jotform.com/${jf}" allow="geolocation; microphone; camera" style="width:100%;height:85vh;min-height:600px;border:0"></iframe>`));
+    $app.append(jotformFrame(jf, def.title));
     return;
   }
   const form = el(`<form></form>`);
@@ -103,7 +119,7 @@ const DOCS = {
 };
 function renderDoc(id) {
   const key = `lbco.doc.${id}`;
-  const url = store.get(key, "") || (window.DOC_URLS && window.DOC_URLS[id]) || "";
+  const url = (window.DOC_URLS && window.DOC_URLS[id]) || store.get(key, "") || "";
   $app.innerHTML = header() + `<h2>${esc(DOCS[id])}</h2>`;
   if (url) $app.append(el(`<a class="btn" href="${esc(url)}" target="_blank" rel="noopener">Open ${esc(DOCS[id])}</a>`));
   else $app.append(el(`<div class="notice">No document linked yet. Paste a link (SharePoint, PDF, website) below.</div>`));
@@ -118,7 +134,7 @@ function renderAdmin(which) {
   const jf = window.ADMIN_JOTFORM && window.ADMIN_JOTFORM[which];
   if (jf) {
     $app.append(backRow());
-    $app.append(el(`<iframe title="${esc(which)}" src="https://form.jotform.com/${jf}" allow="geolocation; microphone; camera" style="width:100%;height:85vh;min-height:600px;border:0"></iframe>`));
+    $app.append(jotformFrame(jf, which));
     return;
   }
   if (which === "addsite") {

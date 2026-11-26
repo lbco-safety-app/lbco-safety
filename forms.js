@@ -243,7 +243,7 @@ window.MENU = {
       { label: "Ground Disturbance Permit", form: "gdp" },
       { label: "Confined Space Permit", form: "csp" },
       { label: "Hot Work Permit", form: "hotwork" },
-      { label: "Working at Height", form: "height" },
+      { heading: "Working at Height" },
       { label: "Fall Protection Plan", form: "fallplan" },
       { label: "Harness Inspection", form: "harness" },
       { label: "Scaffold Inspection", form: "scaffold" }] },
@@ -305,6 +305,7 @@ window.ADMIN_JOTFORM = {
 
 // Default links for the document buttons (used until a link is saved in the browser).
 window.DOC_URLS = {
-  sjp: "https://netorg261134.sharepoint.com/Shared%20Documents/LBCO%20Safety%20App/Safety%20Documents",
-  manual: "https://netorg261134.sharepoint.com/Shared%20Documents/LBCO%20Safety%20App/Safety%20Documents",
+  sjp: "https://netorg261134.sharepoint.com/Shared%20Documents/LBCO%20Safety%20App/Safety%20Documents/LBCOSafeJobProcedures.pdf",
+  manual: "https://netorg261134.sharepoint.com/Shared%20Documents/LBCO%20Safety%20App/Safety%20Documents/LBCOSafetyManual.pdf",
+  ohs: "https://search-ohs-laws.alberta.ca/legislation/",
 };
