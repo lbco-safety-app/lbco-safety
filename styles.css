@@ -38,3 +38,6 @@ h1 { font-family: Raleway, "Open Sans", sans-serif; font-size: 1.4rem; color:#44
 .panel h2 { font-family: Raleway, "Open Sans", sans-serif; font-weight:400; font-size: 1.1rem; color:#444; margin: 14px 0 22px; }
 .panel .btn { margin: 0 0 22px; }
 .panel { padding-bottom: 0; }
+
+
+/* LBCO logo colours: blue #0A5A97, orange #F39C11, grey #999999 */ :root { --lbco-blue:#0a5a97; --lbco-blue-dk:#07436f; --lbco-orange:#f39c11; --lbco-grey:#999999; } h1, .panel h2, .subhead { color:var(--lbco-blue); } .btn { background:var(--lbco-blue); color:#fff; border-bottom:3px solid var(--lbco-blue-dk); } .btn:hover { background:var(--lbco-orange); border-bottom-color:#c47a06; color:#fff; filter:none; } .btn.secondary { background:#fff; color:var(--lbco-blue); border:1px solid var(--lbco-grey); } .panel { background:#f1f1f1; border:1px solid var(--lbco-grey); border-top:4px solid var(--lbco-orange); } .notice { background:#fff4e0; border-color:var(--lbco-orange); } input:focus, select:focus, textarea:focus { outline:2px solid var(--lbco-blue); outline-offset:0; }
