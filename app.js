@@ -27,13 +27,11 @@ function home() {
     grid.append(p);
   });
   $app.append(grid);
-  $app.append(el(`<div class="row"><button class="btn secondary" id="export">Export all submissions (CSV)</button></div>`));
-  document.getElementById("export").onclick = exportCsv;
 }
 
 function btn(item) {
   if (item.heading) return el(`<h3 class="subhead">${esc(item.heading)}</h3>`);
-  const b = el(`<button class="btn">${esc(item.label)}</button>`);
+  const b = el(`<button class="btn">${item.icon ? `<i class="fa-solid fa-${item.icon}"></i> ` : ""}${esc(item.label)}</button>`);
   b.onclick = () => { if (item.doc && window.DOC_URLS && window.DOC_URLS[item.doc]) { window.open(window.DOC_URLS[item.doc], "_blank", "noopener"); return; } if (item.url) { window.open(item.url, "_blank", "noopener"); return; } location.hash = item.report ? `#report/${item.report}` : item.form ? `#form/${item.form}` : item.doc ? `#doc/${item.doc}` : `#admin/${item.admin}`; };
   return b;
 }
