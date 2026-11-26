@@ -305,6 +305,6 @@ window.ADMIN_JOTFORM = {
 
 // Default links for the document buttons (used until a link is saved in the browser).
 window.DOC_URLS = {
-  sjp: "https://bvscanada.com/Clients/LBCO/LBCOSafeJobProcedures.pdf",
-  manual: "https://bvscanada.com/Clients/LBCO/LBCOSafetyManual.pdf",
+  sjp: "https://netorg261134.sharepoint.com/Shared%20Documents/LBCO%20Safety%20App/Safety%20Documents",
+  manual: "https://netorg261134.sharepoint.com/Shared%20Documents/LBCO%20Safety%20App/Safety%20Documents",
 };
