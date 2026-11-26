@@ -12,7 +12,7 @@ const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "
 const today = () => new Date().toISOString().slice(0, 10);
 
 function header() {
-  return `<div class="brand">LBCO</div><h1>Digital Safety App</h1>`;
+  return `<div class="brand"><img src="1795717419849_LBCO%20Contracting%20Ltd.jpg" alt="LBCO Contracting Ltd."></div><h1>Digital Safety App</h1>`;
 }
 
 function home() {
