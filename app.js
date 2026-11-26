@@ -103,7 +103,7 @@ const DOCS = {
 };
 function renderDoc(id) {
   const key = `lbco.doc.${id}`;
-  const url = store.get(key, "");
+  const url = store.get(key, "") || (window.DOC_URLS && window.DOC_URLS[id]) || "";
   $app.innerHTML = header() + `<h2>${esc(DOCS[id])}</h2>`;
   if (url) $app.append(el(`<a class="btn" href="${esc(url)}" target="_blank" rel="noopener">Open ${esc(DOCS[id])}</a>`));
   else $app.append(el(`<div class="notice">No document linked yet. Paste a link (SharePoint, PDF, website) below.</div>`));
@@ -114,6 +114,13 @@ function renderDoc(id) {
 
 function renderAdmin(which) {
   $app.innerHTML = header();
+  // If this admin screen also exists as an LBCO Jotform form, show it (embedded) instead of the built-in screen.
+  const jf = window.ADMIN_JOTFORM && window.ADMIN_JOTFORM[which];
+  if (jf) {
+    $app.append(backRow());
+    $app.append(el(`<iframe title="${esc(which)}" src="https://form.jotform.com/${jf}" allow="geolocation; microphone; camera" style="width:100%;height:85vh;min-height:600px;border:0"></iframe>`));
+    return;
+  }
   if (which === "addsite") {
     $app.append(el(`<h2>Add New Work Site</h2>`));
     const f = el(`<form><label>Site name</label><input type="text" name="name" required><label>Address / location</label><input type="text" name="addr"><label>Site contact</label><input type="text" name="contact"><div class="row"><button class="btn" style="width:auto" type="submit">Add site</button></div></form>`);

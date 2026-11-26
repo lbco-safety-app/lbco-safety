@@ -266,5 +266,24 @@ window.JOTFORM = {
   signs: "263286184411053",       // Construction Signs Inspection
   drill: "263286468063061",       // Emergency Response Drill
   contractor: "263026069664057",  // Contractor Orientation
+  gdp: "263294793145062",         // Ground Disturbance Permit
+  csp: "263295462041051",         // Confined Space Permit
+  hotwork: "263294943118059",     // Hot Work Permit
+  fallplan: "263294688500060",    // Fall Protection Plan
+  harness: "263295255996070",     // Harness Inspection
+  scaffold: "263295130521046",    // Scaffold Inspection
   // warning: "262936036296061",  // Written Warning (Jotform form is currently disabled - turn it on, then uncomment)
+};
+
+// App Admin items that open an LBCO Jotform form (embedded) instead of the built-in screen.
+// Remove an entry to go back to the built-in work site screen.
+window.ADMIN_JOTFORM = {
+  addsite: "263294979797081", // Add New Work Site  (LBCO Add Work Site)
+  sites: "263295660509060",   // Update/Delete Existing Work Sites  (LBCO Update / Delete Existing Worksites Request)
+};
+
+// Default links for the document buttons (used until a link is saved in the browser).
+window.DOC_URLS = {
+  sjp: "https://bvscanada.com/Clients/LBCO/LBCOSafeJobProcedures.pdf",
+  manual: "https://bvscanada.com/Clients/LBCO/LBCOSafetyManual.pdf",
 };
