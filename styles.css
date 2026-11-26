@@ -23,3 +23,4 @@ textarea { min-height: 80px; }
 table { width:100%; border-collapse:collapse; margin-top:12px; font-size:.9rem; }
 th, td { border-bottom:1px solid var(--line); padding:8px; text-align:left; }
 @media (max-width: 700px) { .grid { grid-template-columns: 1fr; } }
+.brand { position:relative; width:260px; height:92px; overflow:hidden; margin:0 auto 4px; letter-spacing:0; } .brand img { position:absolute; width:471px; max-width:none; left:-101px; top:-118px; }
