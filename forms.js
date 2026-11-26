@@ -211,6 +211,17 @@ window.FORMS = {
 };
 
 // Home page layout. kind: form | doc | admin
+window.SHAREPOINT_URL = "https://netorg261134.sharepoint.com/Shared%20Documents/LBCO%20Safety%20App";
+window.REPORTS = {
+  signin: { title: "Work Site Sign-In Summary", src: "https://www.jotform.com/report/25011131371203412" },
+  hazards: { title: "Hazard Assessment Summary", src: "https://www.jotform.com/report/25011225037203712" },
+  orientations: { title: "Orientations", src: "https://www.jotform.com/report/25011412904504112" },
+  fall: { title: "Fall Protection Reports", src: "https://www.jotform.com/report/25011216051703812" },
+  harness: { title: "Harness Inspection Reports", src: "https://www.jotform.com/report/25011321431203212" },
+  hotwork: { title: "Hot Work Reports", src: "https://www.jotform.com/report/25011311176403912" },
+  pme: { title: "PME Reports", src: "https://www.jotform.com/report/25011294818004812" },
+  csp: { title: "Confined Space Reports", src: "https://www.jotform.com/report/25020564338705221" },
+};
 window.MENU = {
   top: [{ label: "Management Safety Reports", form: "mgmt" }],
   columns: [
@@ -242,6 +253,16 @@ window.MENU = {
       { label: "Safe Job Procedures", doc: "sjp" },
       { label: "Health & Safety Manual", doc: "manual" },
       { label: "OHS Legislation", doc: "ohs" }] },
+    { title: "Dashboard", items: [
+      { label: "Work Site Sign-In Summary", report: "signin" },
+      { label: "Hazard Assessment Summary", report: "hazards" },
+      { label: "Orientations", report: "orientations" },
+      { label: "Fall Protection Reports", report: "fall" },
+      { label: "Harness Inspection Reports", report: "harness" },
+      { label: "Hot Work Reports", report: "hotwork" },
+      { label: "PME Reports", report: "pme" },
+      { label: "Confined Space Reports", report: "csp" },
+      { label: "SharePoint Safety Folder", url: window.SHAREPOINT_URL }] },
     { title: "App Admin", items: [
       { label: "Add New Work Site", admin: "addsite" },
       { label: "Technical Support Request", form: "support" },

@@ -33,7 +33,7 @@ function home() {
 
 function btn(item) {
   const b = el(`<button class="btn">${esc(item.label)}</button>`);
-  b.onclick = () => { location.hash = item.form ? `#form/${item.form}` : item.doc ? `#doc/${item.doc}` : `#admin/${item.admin}`; };
+  b.onclick = () => { if (item.url) { window.open(item.url, "_blank", "noopener"); return; } location.hash = item.report ? `#report/${item.report}` : item.form ? `#form/${item.form}` : item.doc ? `#doc/${item.doc}` : `#admin/${item.admin}`; };
   return b;
 }
 
@@ -162,11 +162,22 @@ function exportCsv() {
   a.download = `lbco-submissions-${today()}.csv`; a.click();
 }
 
+function renderReport(id) {
+  const r = window.REPORTS && window.REPORTS[id];
+  $app.innerHTML = header();
+  $app.append(backRow());
+  if (!r) { $app.append(el(`<div class="notice">Report not found.</div>`)); return; }
+  $app.append(el(`<h2>${esc(r.title)}</h2>`));
+  $app.append(el(`<iframe title="${esc(r.title)}" src="${esc(r.src)}" style="width:100%;height:85vh;min-height:600px;border:0"></iframe>`));
+  $app.append(el(`<div class="row"><a class="btn secondary" href="${esc(r.src)}" target="_blank" rel="noopener">Open in new tab</a></div>`));
+}
+
 function route() {
   const [kind, id] = location.hash.slice(1).split("/");
   if (kind === "form") renderForm(id);
   else if (kind === "doc") renderDoc(id);
   else if (kind === "admin") renderAdmin(id);
+  else if (kind === "report") renderReport(id);
   else home();
   window.scrollTo(0, 0);
 }
