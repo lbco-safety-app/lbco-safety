@@ -17,6 +17,12 @@ window.FORMS = {
       { id: "job", label: "Job number", type: "text" },
       { id: "work", label: "Description of work", type: "textarea" }, sign],
   },
+  fieldlog: {
+    title: "Field Log",
+    fields: [...base,
+      { id: "job", label: "Job number", type: "text" },
+      { id: "notes", label: "Field log notes", type: "textarea" }, sign],
+  },
   signin: {
     title: "Work Site Sign In",
     fields: [...base,
@@ -237,8 +243,10 @@ window.MENU = {
       { label: "eHazard Assessment", form: "hazard", icon: "triangle-exclamation" },
       { label: "Powered Mobile Equipment Check", form: "equipment", icon: "video-slash" },
       { label: "Safety Meeting", form: "meeting", icon: "helmet-safety" },
-      { label: "Site Security Checks", form: "security", icon: "shield" },
-      { label: "Force Account Ticket", form: "forceaccount", icon: "file-invoice-dollar" }] },
+      { label: "Site Security Checks", form: "security", icon: "shield" }] },
+    { title: "Field Logs", items: [
+      { label: "Force Account Ticket", form: "forceaccount", icon: "file-invoice-dollar" },
+      { label: "Field Log", form: "fieldlog", icon: "book" }] },
     { title: "Inspections", items: [
       { label: "Incident Reporting & Investigation", form: "incident", icon: "car-burst" },
       { label: "Work Site Inspections", form: "inspection", icon: "clipboard" },
@@ -278,6 +286,7 @@ window.JOTFORM = {
   meeting: "263286863328064",     // Safety Meeting
   security: "263286441467060",    // Site Security Checks
   forceaccount: "263286045900052", // Force Account Ticket
+  fieldlog: "263304618912052",    // Field Log
   incident: "263286282489067",    // Incident Reporting & Investigation
   inspection: "263286342242051",  // Work Site Inspections
   eco: "263286655584067",         // ECO Inspections
